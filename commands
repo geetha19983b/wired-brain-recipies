@@ -1,0 +1,86 @@
+C:\Users\Geetha>git config --global user.name "geetha"
+
+C:\Users\Geetha>git config --global user.email "geethainfy@gmail.com"
+
+git config --list
+
+git config user.name
+
+
+1)git init
+
+
+echo "# wired-brain-recipies" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/geetha19983b/wired-brain-recipies.git
+git push -u origin master
+
+git remote add origin https://github.com/geetha19983b/wired-brain-recipies.git
+git push -u origin master
+
+git status
+git status -s
+git status --short
+
+git diff
+git diff --staged
+git diff --staged --no-renames
+
+# add to staging area and commit
+git commit -a -m "add new vendor"
+
+#push changes to master branch 
+git push origin master
+
+#show history of commits
+git log
+
+#limit log output to one
+git log -1
+
+#list of all commits in single line format
+git log --oneline
+
+#detail view of all the commits
+git log --stat
+
+#show detail in bit by bit
+git log --patch
+
+# to remove file from git tracking and remove from project
+git rm vendors.txt
+
+#untrack files but not remove it from project
+git rm --cached filename
+
+# to create a new branch
+git checkout -b new_branch
+
+git checkout master
+
+git checkout new_branch
+
+# to stash files
+git add .
+git stash
+
+git stash list
+git stash show
+
+# move stash changes to working diretcory
+git stash pop
+
+#merge to to branch u want to merge to 
+#merges new_branch changes to master
+git merge new_branch
+
+#git reset to move commit from history to staging area
+#move to staging area
+git log --oneline
+git reset --soft commitid
+# move to working directory
+git reset --mixed commitid
+#move changes to trash
+git reset --hard
