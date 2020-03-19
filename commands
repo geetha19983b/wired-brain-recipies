@@ -107,3 +107,90 @@ git branch -d branchname
 
 #to force delete
 git branch -D branchname
+
+
+
+#to merge
+git checkout <target-branch>
+git merge <source-branch>
+
+#compare branch
+
+git diff <branch1> <branch2>
+
+#clean up local history
+#pull change from another branch without performing merge
+#see branch history
+git log --oneline
+#gt original base of ticket1 branch created from master
+git merge-base ticket1 master
+#start rebase from the commit sha
+git rebase -i <commit-sha>
+
+
+D:\pluralsight\gitlearn\wired-brain-recipies>git log --oneline
+82815cd threee
+1b6f5c9 two
+44125ed one
+e927889 added solution 1 file
+
+#rebase ticket1 from the point it was created from master
+git merge-base ticket1 master
+e927889f01da664b35c4fd935663c5af152b3d8d
+
+git rebase -i e927889f01da664b35c4fd935663c5af152b3d8d
+
+#squash will combine the two commits to one
+pick 44125ed one
+squash 1b6f5c9 two
+squash 82815cd threee
+
+#to see detail of all the operation
+git reflog
+
+#cherry pick
+git log --oneline
+git log branchname --oneline
+
+# go to branch to where u want to put the commit
+git checkout <branch-name>
+git cherry-pick <commit>
+
+#find the commit which u want to cherry pick in each branch
+#switch then to master
+D:\pluralsight\gitlearn\wired-brain-recipies>git log --oneline
+e2501f8 try 3 in y
+
+git checkout x
+
+D:\pluralsight\gitlearn\wired-brain-recipies>git log --oneline
+86caae4 try3
+
+git checkout master
+
+git cherry-pick 86caae4
+git cherry-pick e2501f8
+
+git log --oneline
+
+git pull
+
+git push
+
+git merge --abort
+
+git rebase origin/master
+git push
+
+git checkout -b feature 4
+# add and commit and then push the branch to remote
+git push -u origin feature 4
+
+#to see branches on  the remote
+git ls-remote
+
+#to fetch feature 4 branch from remote
+git fetch origin feature4
+git branch
+git branch -a
+git checkout --track origin/feature
